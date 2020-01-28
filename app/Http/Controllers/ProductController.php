@@ -115,6 +115,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+
+        return response()->json($message = 'Product deleted', $status = response::HTTP_NO_CONTENT);
     }
 }
