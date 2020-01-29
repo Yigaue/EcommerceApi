@@ -117,6 +117,10 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        return response()->json($message = 'Product deleted', $status = response::HTTP_NO_CONTENT);
+        return response()->json([
+
+            'message' =>'Product deleted successful',
+            
+            'status' => response::HTTP_NO_CONTENT]);
     }
 }
