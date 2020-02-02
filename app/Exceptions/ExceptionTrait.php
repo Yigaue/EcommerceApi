@@ -15,15 +15,17 @@ trait ExceptionTrait
     {
         if($this->isModel($e)){
 
-            return $this->httpResponse();
+            return $this->httpResponse($e);
 
         }
 
             if($this->isHTTP($e)){
 
-                return $this->modelResponse();
+                return $this->modelResponse($e);
 
             }
+
+            return parent::render($request, $e);
 
     }
 
@@ -48,7 +50,7 @@ trait ExceptionTrait
             ],
 
             Response::HTTP_NOT_FOUND);
-    } 
+    }
 
     public function httpResponse()
 
